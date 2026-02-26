@@ -1,6 +1,7 @@
 # 9-72.github.io
 
 
+
 flowchart LR
     A[数的运算] --> B[运算法则]
     A --> C[运算定律]
