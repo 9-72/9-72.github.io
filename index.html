@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <title>9-72 · 8-25 的小猫枪战</title>
+    <!-- 网站图标 SVG 格式 (素材目录) -->
+    <link rel="icon" type="image/svg+xml" href="素材/icon.svg">
+    <!-- 可选备用 favicon (避免浏览器找不到svg时出错) -->
+    <link rel="alternate icon" href="素材/favicon.ico">
     <style>
         /* 重置 & 基础变量 — 简洁流畅 */
         * {
@@ -162,20 +166,26 @@
             letter-spacing: 0.3px;
         }
 
-        .download-button {
-            background: #1e3b5c;
-            color: #fff;
+        /* 统一按钮基本造型：圆角、内边距、阴影、flex布局、过渡 */
+        .download-button,
+        .online-play-btn {
             padding: 0.75rem 2rem;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 540;
             font-size: 1.3rem;
-            box-shadow: 0 8px 14px -6px #1e3b5c80;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.2);
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 14px -6px rgba(0,0,0,0.2);
+        }
+
+        .download-button {
+            background: #1e3b5c;
+            color: #fff;
+            box-shadow: 0 8px 14px -6px #1e3b5c80;
         }
 
         .download-button:hover {
@@ -196,23 +206,23 @@
             background: #6d98c2;
         }
 
+        /* 在线游玩按钮 — 保留原来的黄色主题，但造型与其他按钮一致 */
         .online-play-btn {
-            background: transparent;
-            color: #FFD600;
-            border: 2px solid #FFD600;
-            box-shadow: none;
-            font-weight: 540;
+            background: #FFD600;           /* 明亮黄底 */
+            color: #1e2b3c;                /* 深色文字保证可读 */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 14px -6px #FFD60080;
         }
+
         .online-play-btn:hover {
-            background: rgba(255, 214, 0, 0.15);
-            box-shadow: 0 8px 20px -8px #FFD60099;
-            color: #FFD600;
-            border-color: #FFD600;
-            transform: scale(1.05)
-translateY(-3px);
+            background: #ffe033;            /* 悬停亮黄 */
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 18px 24px -10px #b28900;
+            border-color: rgba(255, 255, 255, 0.5);
         }
+
         .online-play-btn:active {
-            background: rgba(255, 214, 0, 0.18);
+            transform: scale(0.98);
         }
 
         .version-log {
@@ -291,6 +301,7 @@ translateY(-3px);
             color: #0d2d48;
         }
 
+        /* 卡片占位样式 — 无视频，保持占位氛围 */
         .placeholder-card {
             background: rgba(230, 241, 250, 0.7);
             border-radius: 32px;
@@ -340,7 +351,8 @@ translateY(-3px);
             h1 a { font-size: 1.2rem; padding: 0.2rem 0.8rem; }
             .card { padding: 1.5rem 1.2rem; }
             .latest-section { flex-direction: column; align-items: flex-start; border-radius: 32px; }
-            .download-button { width: 100%; justify-content: center; }
+            .download-button,
+            .online-play-btn { width: 100%; justify-content: center; } /* 统一小屏铺满 */
             .history-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
             .history-link { white-space: normal; font-size: 0.85rem; }
         }
@@ -373,7 +385,7 @@ translateY(-3px);
                 </h3>
             </div>
 
-            <!-- 最新版本下载 -->
+            <!-- 最新版本下载 (按钮统一风格，在线按钮保留黄色调) -->
             <div class="latest-section">
                 <span class="latest-label">📥 最新版本下载</span>
                 <a href="小猫枪战/小猫枪战的 html 版/小猫枪战6.0.html" class="online-play-btn">
@@ -421,6 +433,7 @@ translateY(-3px);
             </div>
         </section>
 
+        <!-- 第二卡片：8-25 区域，移除视频，恢复占位提示 (简洁风格) -->
         <section class="card" style="margin-top: 2rem;">
             <h2>
                 🐾 8-25
@@ -428,7 +441,7 @@ translateY(-3px);
             </h2>
             <div class="placeholder-card">
                 <div style="font-size: 3rem; line-height: 1;">🕊️</div>
-                <div style="font-weight: 400;">8-25 的项目即将在这里呈现</div>
+                <div style="font-weight: 400; font-size: 1.2rem;">8-25 的项目即将在这里呈现</div>
                 <p>也许是全新游戏 / 工具 / 动画 …… 保持期待</p>
             </div>
         </section>
